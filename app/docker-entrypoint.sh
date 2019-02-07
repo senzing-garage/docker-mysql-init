@@ -11,11 +11,6 @@ MYSQL_PARAMETERS="$@"
 
 if [ ! -f ${SENTINEL_FILE} ]; then
 
-  # Append to a "Sentinel file" to indicate when this script has been run.
-  # The Sentinel file is used to identify the first run from subsequent runs for "first-time" processing.
-
-  echo "$(date)" >> ${SENTINEL_FILE}
-
   # Run mysql with the parameters.
 
   COMMAND="mysql ${MYSQL_PARAMETERS}"
@@ -25,3 +20,8 @@ if [ ! -f ${SENTINEL_FILE} ]; then
   done
 
 fi
+
+# Append to a "Sentinel file" to indicate when this script has been run.
+# The Sentinel file is used to identify the first run from subsequent runs for "first-time" processing.
+
+echo "$(date)" >> ${SENTINEL_FILE}
