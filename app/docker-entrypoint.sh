@@ -19,6 +19,7 @@ if [ ! -f ${SENTINEL_FILE} ]; then
   # Run mysql with the parameters.
 
   COMMAND="mysql ${MYSQL_PARAMETERS}"
+  echo "Executing: ${COMMAND}"
   while ! $(/bin/bash -c "${COMMAND}") ; do
     echo "Sleeping 15 seconds, then will re-try."
     sleep 15
