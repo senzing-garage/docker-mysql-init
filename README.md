@@ -26,7 +26,7 @@ but differs in the following ways:
 ## Create docker container
 
 ```console
-sudp docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-init.git
+sudo docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-init.git
 ```
 
 ## Run Docker container
