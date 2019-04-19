@@ -26,7 +26,7 @@ but differs in the following ways:
 ## Create docker container
 
 ```console
-docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-init.git
+sudo docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-init.git
 ```
 
 ## Run Docker container
@@ -58,7 +58,7 @@ docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-in
    Example:
 
     ```console
-    docker ps
+    sudo docker ps
 
     # Choose value from NAMES column of docker ps
     export MYSQL_HOST=docker-container-name
@@ -68,7 +68,7 @@ docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-in
    Example:
 
     ```console
-    docker network ls
+    sudo docker network ls
 
     # Choose value from NAME column of docker network ls
     export MYSQL_NETWORK=nameofthe_network
@@ -86,7 +86,7 @@ docker build --tag senzing/mysql-init https://github.com/senzing/docker-mysql-in
    Note: parameters after senzing/mysql-init are [mysql CLI options](https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html).
 
     ```console
-    docker run -it  \
+    sudo docker run -it  \
       --volume ${MYSQL_DIR}:/sql \
       --net ${MYSQL_NETWORK} \
       --env SENZING_SENTINEL_FILE=${SENZING_SENTINEL_FILE} \
