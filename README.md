@@ -104,7 +104,7 @@ but differs in the following ways:
     export MYSQL_HOST=docker-container-name
     ```
 
-1. Identify where the "sentinel file" should be located.
+1. :pencil2: Identify where the "sentinel file" should be located.
    The file should be on an external volume.
    Example:
 
