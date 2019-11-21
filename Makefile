@@ -20,10 +20,15 @@ default: help
 # -----------------------------------------------------------------------------
 
 .PHONY: docker-build
-docker-build: docker-rmi
+docker-build: docker-rmi-for-build
 	docker build \
 	    --tag $(DOCKER_IMAGE_NAME) \
 		--tag $(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
+		.
+
+.PHONY: docker-build-development-cache
+docker-build-development-cache: docker-rmi-for-build-development-cache
+	docker build \
 		--tag $(DOCKER_IMAGE_TAG) \
 		.
 
@@ -31,14 +36,18 @@ docker-build: docker-rmi
 # Clean up targets
 # -----------------------------------------------------------------------------
 
-.PHONY: docker-rmi
-docker-rmi:
-	-docker rmi --force $(DOCKER_IMAGE_TAG) \
+.PHONY: docker-rmi-for-build
+docker-rmi-for-build:
+	-docker rmi --force \
 		$(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
 		$(DOCKER_IMAGE_NAME)
 
+.PHONY: docker-rmi-for-build-development-cache
+docker-rmi-for-build-development-cache:
+	-docker rmi --force $(DOCKER_IMAGE_TAG)
+
 .PHONY: clean
-clean: docker-rmi
+clean: docker-rmi-for-build docker-rmi-for-build-development-cache
 
 # -----------------------------------------------------------------------------
 # Help
