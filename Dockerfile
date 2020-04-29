@@ -1,10 +1,13 @@
-FROM gliderlabs/alpine:3.6
+FROM ubuntu
 
-ENV REFRESHED_AT=2018-11-12
+ENV REFRESHED_AT=2020-04-29
 
 # Install prerequisites.
 
-RUN apk-install mysql-client bash
+RUN apt-get update \
+ && apt-get -y install \
+      mysql-client \
+ && rm -rf /var/lib/apt/lists/*
 
 # Copy the repository's app directory.
 
