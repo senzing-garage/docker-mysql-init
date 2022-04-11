@@ -40,7 +40,7 @@ but differs in the following ways:
     ```console
     sudo docker build \
       --tag senzing/mysql-init \
-      https://github.com/senzing/docker-mysql-init.git
+      https://github.com/senzing/docker-mysql-init.git#main
     ```
 
 ## Docker network
