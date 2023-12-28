@@ -1,11 +1,23 @@
 # docker-mysql-init
 
+If you are beginning your journey with
+[Senzing](https://senzing.com/),
+please start with
+[Senzing Quick Start guides](https://docs.senzing.com/quickstart/).
+
+You are in the
+[Senzing Garage](https://github.com/senzing-garage)
+where projects are "tinkered" on.
+Although this GitHub repository may help you understand an approach to using Senzing,
+it's not considered to be "production ready" and is not considered to be part of the Senzing product.
+Heck, it may not even be appropriate for your application of Senzing!
+
 ## Overview
 
 This Dockerfile is a wrapper over the [MySQL Command-Line Tool](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 
 This Dockerfile is similar to
-[senzing/mysql](https://github.com/Senzing/docker-mysql),
+[senzing/mysql](https://github.com/senzing-garage/docker-mysql),
 but differs in the following ways:
 
 1. The command is only run once.
@@ -16,7 +28,7 @@ but differs in the following ways:
 1. On the first run, the command loops until it succeeds.
    This is useful in docker-compose formations where the `mysql` command needs to wait for mysql server to come up.
    An example is at
-   [senzing/docker-compose-mysql-demo](https://github.com/Senzing/docker-compose-mysql-demo).
+   [senzing/docker-compose-mysql-demo](https://github.com/senzing-garage/docker-compose-mysql-demo).
 
 ### Contents
 
@@ -40,7 +52,7 @@ but differs in the following ways:
     ```console
     sudo docker build \
       --tag senzing/mysql-init \
-      https://github.com/senzing/docker-mysql-init.git#main
+      https://github.com/senzing-garage/docker-mysql-init.git#main
     ```
 
 ## Docker network
